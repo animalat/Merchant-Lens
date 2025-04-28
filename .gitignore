@@ -57,6 +57,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Env files
+*.env
 .env
 .env.local
 .env.development.local
@@ -80,3 +81,4 @@ prisma/migrations/
 
 # Railway
 railway.json
+DEV.md
