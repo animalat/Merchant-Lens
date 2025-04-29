@@ -8,37 +8,49 @@ datasource db {
 }
 
 model Merchant {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String   @unique
-  products    Product[]
-  orders      Order[]
-  createdAt   DateTime @default(now())
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  products  Product[]
+  orders    Order[]
+  createdAt DateTime  @default(now())
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  price       Float
-  merchant    Merchant @relation(fields: [merchantId], references: [id])
-  merchantId  Int
-  createdAt   DateTime @default(now())
+  id         Int         @id @default(autoincrement())
+  name       String
+  price      Float
+  merchant   Merchant    @relation(fields: [merchantId], references: [id])
+  merchantId Int
+  createdAt  DateTime    @default(now())
+  items      OrderItem[]
 }
 
 model Customer {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String   @unique
-  orders      Order[]
-  createdAt   DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  orders    Order[]
+  createdAt DateTime @default(now())
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   Int
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int
+  price     Float // price at the time of purchase
 }
 
 model Order {
-  id          Int      @id @default(autoincrement())
-  merchant    Merchant @relation(fields: [merchantId], references: [id])
+  id          Int         @id @default(autoincrement())
+  merchant    Merchant    @relation(fields: [merchantId], references: [id])
   merchantId  Int
-  customer    Customer @relation(fields: [customerId], references: [id])
+  customer    Customer    @relation(fields: [customerId], references: [id])
   customerId  Int
   totalAmount Float
-  createdAt   DateTime @default(now())
+  createdAt   DateTime    @default(now())
+  items       OrderItem[]
 }
