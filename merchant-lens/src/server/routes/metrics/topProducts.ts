@@ -16,7 +16,6 @@ import { toZonedTime } from "date-fns-tz";
  * @param res 
  */
 export default async function topProducts(req: Request, res: Response) {
-    console.log("HIT /api/top-products");
     const merchantId = Number(req.query.merchantId);
     const month = req.query.month;
 
