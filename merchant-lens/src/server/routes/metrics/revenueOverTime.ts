@@ -15,6 +15,14 @@ import {
 } from "date-fns";
 import { toZonedTime } from 'date-fns-tz';
 
+/**
+ * @param req
+ *  - merchantId
+ *  - numTime (how many timeType units to get)
+ *  - timeType (the unit of time desired; day|week|month)
+ * @param res 
+ * @returns 
+ */
 export default async function revenueOverTime(req: Request, res: Response) {
     const merchantId = Number(req.query.merchantId);
     const numTime = Number(req.query.numTime);
@@ -31,7 +39,7 @@ export default async function revenueOverTime(req: Request, res: Response) {
     }
 
     if (typeof timeType !== "string") {
-        res.status(400).json({ error: "Invalid or missing timeType "});
+        res.status(400).json({ error: "Invalid or missing timeType" });
         return;
     }
 
@@ -58,7 +66,7 @@ export default async function revenueOverTime(req: Request, res: Response) {
         addFunc = addDays;
         timeTypeString = "yyyy-MM-dd";
     } else {
-        res.status(400).json({ error: "Invalid timeType: must be month | week | day " });
+        res.status(400).json({ error: "Invalid timeType: must be month|week|day" });
         return;
     }
 
