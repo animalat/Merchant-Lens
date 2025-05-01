@@ -12,10 +12,6 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/hello', (_req, res) => {
-  res.json({ message: 'Hello from Express backend!' });
-});
-
 app.get("/api/metrics", handleMetricsOverview);
 app.get("/api/metrics/revenue-over-time", revenueOverTime);
 app.get("/api/metrics/month-overview", monthOverview);
