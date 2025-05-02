@@ -9,7 +9,7 @@ export default async function DashboardPage() {
     const revenueDaily = await fetchRevenueOverTime(merchantId, 30, "day");
 
     return (
-    <div className="min-h-screen bg-gradient-to-r from-[#0c111d] to-[#21244f] text-white p-8">
+    <div className="min-h-screen bg-gradient-to-r from-[#222222] to-[#222222] text-white p-8">
         <h1 className="text-3xl font-bold mb-6">Merchant Dashboard</h1>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <StatCard title="Total Revenue" value={overviewData.totalRevenue} />

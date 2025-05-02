@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
 
-export default function RevenueGraph({ title, chartData }: { title: string; chartData: { date: string; revenue: number }[] }) {
+export default function StatCardGraph({ title, chartData }: { title: string; chartData: { date: string; revenue: number }[] }) {
     let totalRevenue = 0;
     for (let i = 0; i < chartData.length; ++i) {
         totalRevenue += chartData[i].revenue;
@@ -25,8 +25,8 @@ export default function RevenueGraph({ title, chartData }: { title: string; char
                 <Area
                 type="monotone"
                 dataKey="revenue"
-                stroke="#4F46E5"
-                fill="#6366F1"
+                stroke="#212529"
+                fill="#a5a5a5"
                 strokeWidth={2}
                 />
             </AreaChart>
