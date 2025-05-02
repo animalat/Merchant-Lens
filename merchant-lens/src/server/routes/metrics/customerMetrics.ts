@@ -15,6 +15,10 @@ import { toZonedTime } from "date-fns-tz";
  *  - month desired (yyyy-MM)
  * @param res 
  * @returns 
+ * res:
+ * - topCustomers: { name: string; total: number }[]
+ * - returningCustomerCount: number
+ * - newCustomerCount: number
  */
 export default async function customerMetrics(req: Request, res: Response) {
     const merchantId = Number(req.query.merchantId);

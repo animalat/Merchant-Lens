@@ -22,6 +22,8 @@ import { toZonedTime } from 'date-fns-tz';
  *  - timeType (the unit of time desired; day|week|month)
  * @param res 
  * @returns 
+ * res: // array representing data over chosen time period
+ *  - { date: string; revenue: number }[]
  */
 export default async function revenueOverTime(req: Request, res: Response) {
     const merchantId = Number(req.query.merchantId);

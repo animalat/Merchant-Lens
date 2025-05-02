@@ -6,6 +6,10 @@ import prisma from "@/server/utils/prisma";
  *  - merchantId 
  * @param res 
  * @returns 
+ * res:
+ *  - totalRevenue: number
+ *  - totalOrders: number
+ *  - totalCustomers: number
  */
 export default async function handleMetricsOverview(req: Request, res: Response) {
   const merchantId = Number(req.query.merchantId);

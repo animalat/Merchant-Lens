@@ -14,6 +14,8 @@ import { toZonedTime } from "date-fns-tz";
  *  - merchantId
  *  - month (YYYY-MM)
  * @param res 
+ * res:
+ *  - topProducts: { name: string; quantity: number; revenue: number }[]
  */
 export default async function topProducts(req: Request, res: Response) {
     const merchantId = Number(req.query.merchantId);
