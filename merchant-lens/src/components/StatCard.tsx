@@ -1,3 +1,5 @@
+"use client";
+
 type StatCardProps = {
     title: string;
     value: string | number;

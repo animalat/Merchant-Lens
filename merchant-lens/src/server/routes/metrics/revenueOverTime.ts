@@ -103,7 +103,7 @@ export default async function revenueOverTime(req: Request, res: Response) {
             const label = format(current, timeTypeString);
             result.push({
                 date: label,
-                revenue: revenueMap[label] || 0,
+                revenue: Number((revenueMap[label] || 0).toFixed(2)),
             });
             current = addFunc(current, 1);
         }

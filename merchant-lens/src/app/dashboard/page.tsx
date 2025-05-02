@@ -1,17 +1,24 @@
+import { fetchOverview, fetchRevenueOverTime } from "@/lib/api";
 import StatCard from "@/components/StatCard";
-import { fetchOverview } from "@/lib/api";
+import StatCardGraph from "@/components/StatCardGraph";
 
 export default async function DashboardPage() {
-    const data = await fetchOverview(1);
+    const merchantId = 1;
+    const overviewData = await fetchOverview(merchantId);
+    const revenueMonthly = await fetchRevenueOverTime(merchantId, 12, "month");
+    const revenueDaily = await fetchRevenueOverTime(merchantId, 30, "day");
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-[#0c111d] to-[#21244f] text-white p-8">
-            <h1 className="text-3xl font-bold mb-6">Merchant Dashboard</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <StatCard title="Total Revenue" value={`$${data.totalRevenue.toFixed(2)}`} />
-                <StatCard title="Total Orders" value={data.totalOrders} />
-                <StatCard title="Total Customers" value={data.totalCustomers} />
-            </div>
+    <div className="min-h-screen bg-gradient-to-r from-[#0c111d] to-[#21244f] text-white p-8">
+        <h1 className="text-3xl font-bold mb-6">Merchant Dashboard</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <StatCard title="Total Revenue" value={overviewData.totalRevenue} />
+        <StatCard title="Total Orders" value={overviewData.totalOrders} />
+        <StatCard title="Total Customers" value={overviewData.totalCustomers} />
+
+        <StatCardGraph title="Monthly Revenue" chartData={revenueMonthly} />
+        <StatCardGraph title="Revenue (Last 30 Days)" chartData={revenueDaily} />
         </div>
+    </div>
     );
 }
