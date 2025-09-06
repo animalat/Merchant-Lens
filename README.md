@@ -10,9 +10,9 @@ An analytics tool that provides merchants with data on their revenue, customer b
     
 | Feature              | Description                                         |
 |----------------------|-----------------------------------------------------|
-| Overview Metrics     | Quickly view key merchant data                      |
+| Overview Metrics     | Quickly view an overview of merchant data           |
 | Customer Insights    | Track top, new, and returning customers             |
-| Monthly Summaries    | Compare revenue and order trends                    |
+| Monthly Summaries    | Compare revenue and order trends between months     |
 | Revenue Tracking     | Analyze daily, weekly, monthly, and yearly revenue  |
 | Product Performance  | See top-selling and highest-revenue products        |
 | Custom Timeframes    | Filter metrics for any desired period               |
